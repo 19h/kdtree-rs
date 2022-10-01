@@ -1,5 +1,5 @@
 [package]
-name = "kdtree"
+name = "kdtree-simd"
 version = "0.6.1-alpha.0"
 authors = ["Rui Hu <code@mrhooray.com>"]
 description = "K-dimensional tree in Rust for fast geospatial indexing and nearest neighbors lookup"
@@ -10,7 +10,7 @@ documentation = "https://docs.rs/kdtree"
 license = "MIT OR Apache-2.0"
 
 [dev-dependencies]
-rand = "0.3.9"
+rand = "0.6.5"
 
 [dependencies]
 num-traits = "0.2"

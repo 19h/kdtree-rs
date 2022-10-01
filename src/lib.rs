@@ -64,3 +64,5 @@ pub mod kdtree;
 mod util;
 pub use crate::kdtree::ErrorKind;
 pub use crate::kdtree::KdTree;
+
+pub mod simd_euclidean;

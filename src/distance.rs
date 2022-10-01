@@ -3,6 +3,7 @@
 //! squares of the distances in each dimension.
 
 use num_traits::Float;
+use simd_euclidean::Vectorized;
 
 /// Returns the squared euclidean distance between two points. When you only
 /// need to compare distances, rather than having the exact distance between
@@ -29,10 +30,12 @@ use num_traits::Float;
 /// // this is broken
 /// let _ = squared_euclidean(&[0.0, 0.0], &[1.0, 0.0, 0.0]);
 /// ```
-pub fn squared_euclidean<T: Float>(a: &[T], b: &[T]) -> T {
+pub fn squared_euclidean_f32(a: &[f32], b: &[f32]) -> f32 {
     debug_assert_eq!(a.len(), b.len());
-    a.iter()
-        .zip(b.iter())
-        .map(|(x, y)| ((*x) - (*y)) * ((*x) - (*y)))
-        .fold(T::zero(), ::std::ops::Add::add)
+    Vectorized::distance(a, b)
+}
+
+pub fn squared_euclidean_f64(a: &[f64], b: &[f64]) -> f64 {
+    debug_assert_eq!(a.len(), b.len());
+    Vectorized::distance(a, b)
 }
